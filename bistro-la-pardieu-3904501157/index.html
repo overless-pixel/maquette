@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Bistro La Pardieu, cuisine française à Clermont-Ferrand (maquette)</title>
+<meta name="description" content="Bistro La Pardieu, 2 avenue Michel-Ange à Clermont-Ferrand : cuisine française, terrasse, sur place ou à emporter, du lundi au vendredi de 8h à 20h.">
+<meta name="theme-color" content="#1A2630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --zinc:#E3E8EA;        /* fond : le zinc du comptoir */
+    --zinc-deep:#CFD7DA;
+    --ink:#1A2630;         /* encre : bleu ardoise */
+    --ink-soft:#44525C;
+    --jaune:#F2C230;       /* accent : le jaune des parasols de terrasse */
+    --jaune-deep:#D9A90F;
+    --blanc:#FFFFFF;
+    --radius:6px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--zinc);color:var(--ink);
+    font-family:"Karla",system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;
+    -webkit-tap-highlight-color:transparent;overflow-x:hidden;
+  }
+  ::selection{background:var(--jaune);color:var(--ink)}
+  a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:2px}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+  .dark :focus-visible{outline-color:var(--jaune)}
+  h1,h2,h3{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
+  p{margin:0}
+  .wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+  /* Bandeau démo */
+  .demo{background:var(--ink);color:var(--blanc);font-size:.875rem;text-align:center;padding:.55rem 1rem}
+
+  /* En-tête */
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+  .brand{font-family:"Alfa Slab One",Georgia,serif;font-size:1.25rem;text-decoration:none}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.7rem 1.3rem;
+    border-radius:var(--radius);font-weight:700;text-decoration:none;border:2px solid var(--ink);
+    transition:background-color .2s ease,transform .15s ease;user-select:none;-webkit-user-select:none;
+  }
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-main{background:var(--jaune);color:var(--ink)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn:active{transform:scale(.97)}
+  @media (hover:hover){
+    .btn-main:hover{background:var(--jaune-deep)}
+    .btn-ghost:hover{background:var(--zinc-deep)}
+  }
+  .top .btn{min-height:44px;padding:.5rem 1rem;font-size:.95rem}
+
+  /* Accroche */
+  .hero{padding-block:clamp(2rem,6vw,4.5rem) clamp(2.5rem,6vw,4rem)}
+  .hero h1{font-size:clamp(3rem,12vw,8.5rem);line-height:.92}
+  .hero h1 span{display:block}
+  .lead{margin-top:1.5rem;font-size:clamp(1.15rem,2.2vw,1.4rem);max-width:34ch;color:var(--ink-soft)}
+  .lead strong{color:var(--ink)}
+  .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+
+  /* La journée : réglette 8h → 20h */
+  .journee{margin-top:clamp(2.5rem,6vw,4rem);background:var(--blanc);border-radius:var(--radius);padding:1.25rem 1.25rem 1rem;
+    box-shadow:0 10px 30px -18px rgba(26,38,48,.45)}
+  .journee-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1rem;margin-bottom:1rem}
+  .statut{font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:.5rem}
+  .pastille{width:12px;height:12px;border-radius:50%;background:var(--ink-soft);flex:none}
+  .statut.ouvert .pastille{background:#1F8A4C}
+  .statut.ferme .pastille{background:#B3261E}
+  .jours{color:var(--ink-soft);font-size:.95rem}
+  .regle{position:relative;height:56px;border-radius:4px;overflow:hidden;
+    background:repeating-linear-gradient(90deg,var(--jaune) 0 calc(100%/12 - 2px),var(--jaune-deep) calc(100%/12 - 2px) calc(100%/12))}
+  .regle.weekend{background:repeating-linear-gradient(90deg,var(--zinc) 0 calc(100%/12 - 2px),var(--zinc-deep) calc(100%/12 - 2px) calc(100%/12))}
+  .curseur{position:absolute;top:0;bottom:0;left:0;width:4px;margin-left:-2px;background:var(--ink);
+    transform:translateX(var(--x,0px));transition:transform 1.4s cubic-bezier(.16,1,.3,1);display:none}
+  .curseur::after{content:"";position:absolute;top:-1px;left:50%;width:14px;height:14px;margin-left:-7px;background:var(--ink);
+    clip-path:polygon(0 0,100% 0,50% 100%)}
+  .graduations{display:flex;justify-content:space-between;margin-top:.45rem;font-size:.9rem;font-variant-numeric:tabular-nums;color:var(--ink-soft)}
+
+  /* Sur la table */
+  .table{background:var(--ink);color:var(--blanc);padding-block:clamp(3rem,8vw,6rem)}
+  .table h2{font-size:clamp(2rem,5vw,3.25rem);color:var(--jaune)}
+  .carte{list-style:none;margin:2rem 0 0;padding:0;border-top:2px solid rgba(255,255,255,.18)}
+  .carte li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1.5rem;
+    padding-block:1.1rem;border-bottom:2px solid rgba(255,255,255,.18)}
+  .carte .plat{font-family:"Alfa Slab One",Georgia,serif;font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.1}
+  .carte .note{color:#C9D3D9;max-width:36ch}
+  .table .apres{margin-top:1.75rem;color:#C9D3D9;max-width:60ch}
+
+  /* Sur place / terrasse */
+  .lieu{padding-block:clamp(3rem,8vw,6rem)}
+  .lieu-grid{display:grid;gap:2rem;align-items:center}
+  @media (min-width:820px){.lieu-grid{grid-template-columns:1.1fr 1fr;gap:4rem}}
+  .photo{aspect-ratio:4/3;border:2px dashed var(--ink-soft);border-radius:var(--radius);display:grid;place-items:center;
+    text-align:center;color:var(--ink-soft);background:
+      repeating-linear-gradient(135deg,transparent 0 14px,rgba(26,38,48,.05) 14px 28px)}
+  .photo span{font-weight:700;background:var(--zinc);padding:.4rem .8rem;border-radius:4px}
+  .lieu h2{font-size:clamp(2rem,5vw,3rem)}
+  .lieu p.intro{margin-top:1rem;color:var(--ink-soft);max-width:44ch}
+  .formules{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.5rem 0 0;padding:0;list-style:none}
+  .formules li{border:2px solid var(--ink);border-radius:999px;padding:.4rem 1rem;font-weight:700}
+  .paiement{margin-top:1.75rem;padding-top:1.25rem;border-top:2px solid var(--zinc-deep)}
+  .paiement h3{font-family:"Karla",sans-serif;font-weight:700;font-size:1rem;letter-spacing:0}
+  .paiement p{color:var(--ink-soft);margin-top:.25rem}
+
+  /* Venir */
+  .venir{background:var(--blanc);padding-block:clamp(3rem,8vw,6rem)}
+  .venir-grid{display:grid;gap:2.5rem}
+  @media (min-width:900px){.venir-grid{grid-template-columns:1fr 1.25fr;gap:4rem}}
+  .venir h2{font-size:clamp(2rem,5vw,3rem)}
+  .horaires{margin-top:1.5rem;width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  .horaires th,.horaires td{text-align:left;padding:.7rem 0;border-bottom:2px solid var(--zinc)}
+  .horaires td{text-align:right}
+  .horaires tr.off td{color:var(--ink-soft)}
+  .horaires tr.today th,.horaires tr.today td{font-weight:700}
+  .horaires tr.today th::after{content:" (aujourd’hui)";font-weight:400;color:var(--ink-soft)}
+  .coord{margin-top:2rem;display:grid;gap:.9rem;font-style:normal}
+  .coord a,.coord div{display:flex;gap:.75rem;align-items:flex-start;min-height:44px}
+  .coord svg{width:22px;height:22px;flex:none;margin-top:.15rem}
+  .coord .vide{color:var(--ink-soft)}
+  .map{border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;min-height:340px;height:100%;background:var(--zinc)}
+  .map iframe{display:block;width:100%;height:100%;min-height:340px;border:0}
+  .map-link{margin-top:.75rem;display:inline-block;font-weight:700}
+
+  footer{background:var(--ink);color:#C9D3D9;padding-block:2.5rem calc(2.5rem + env(safe-area-inset-bottom));font-size:.95rem}
+  footer .nom{font-family:"Alfa Slab One",Georgia,serif;color:var(--blanc);font-size:1.4rem}
+  footer p+p{margin-top:.5rem}
+  footer a{color:var(--blanc)}
+
+  /* Animation d'arrivée : le nom se lève, une seule fois */
+  @media (prefers-reduced-motion:no-preference){
+    .js .hero h1 span{animation:monte .9s cubic-bezier(.16,1,.3,1) both}
+    .js .hero h1 span:nth-child(2){animation-delay:.08s}
+    .js .hero h1 span:nth-child(3){animation-delay:.16s}
+    @keyframes monte{from{opacity:0;transform:translateY(.35em);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 -10% 0)}}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .curseur{transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="demo" role="note">Maquette de démonstration — proposition non officielle</div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">La Pardieu</a>
+    <a class="btn btn-main" href="tel:+33473433262" aria-label="Appeler le Bistro La Pardieu au 04 73 43 32 62">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Appeler
+    </a>
+  </header>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1><span>Bistro</span><span>La</span><span>Pardieu</span></h1>
+      <p class="lead">Cuisine française au pied des bureaux du Pardieu, <strong>du lundi au vendredi, de 8h à 20h</strong>. Sur place, en terrasse ou à emporter.</p>
+      <div class="actions">
+        <a class="btn btn-main" href="tel:+33473433262">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Réserver au 04 73 43 32 62
+        </a>
+        <a class="btn btn-ghost" href="https://www.openstreetmap.org/directions?to=45.7610268%2C3.1311364" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          Itinéraire
+        </a>
+      </div>
+
+      <div class="journee" aria-live="polite">
+        <div class="journee-head">
+          <p class="statut" id="statut"><span class="pastille" aria-hidden="true"></span><span id="statut-txt">Ouvert du lundi au vendredi, de 8h à 20h</span></p>
+          <p class="jours">Fermé le samedi et le dimanche</p>
+        </div>
+        <div class="regle" id="regle" role="img" aria-label="Journée d’ouverture, de 8h à 20h">
+          <div class="curseur" id="curseur"></div>
+        </div>
+        <div class="graduations" aria-hidden="true"><span>8h</span><span>11h</span><span>14h</span><span>17h</span><span>20h</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="table" aria-labelledby="t-table">
+    <div class="wrap">
+      <h2 id="t-table">Sur la table</h2>
+      <ul class="carte">
+        <li><span class="plat">Cuisine française</span><span class="note">Une cuisine de bistrot, servie dès 8h en semaine.</span></li>
+        <li><span class="plat">Viandes</span><span class="note">Des plats de viande, au cœur de la carte.</span></li>
+        <li><span class="plat">Salade vegan</span><span class="note">Une option végétale à la carte.</span></li>
+      </ul>
+      <p class="apres">Vos plats du jour, vos formules et leurs prix, présentés ici comme vous le souhaitez (à compléter).</p>
+    </div>
+  </section>
+
+  <section class="lieu" aria-labelledby="t-lieu">
+    <div class="wrap lieu-grid">
+      <div class="photo"><span>Photo à fournir : la terrasse</span></div>
+      <div>
+        <h2 id="t-lieu">À table, dehors ou au bureau</h2>
+        <p class="intro">Un déjeuner entre collègues, un café avant la première réunion, un plat à rapporter : le bistro s’adapte au rythme du quartier.</p>
+        <ul class="formules">
+          <li>Sur place</li>
+          <li>Terrasse</li>
+          <li>À emporter</li>
+          <li>Accès PMR</li>
+        </ul>
+        <div class="paiement">
+          <h3>Moyens de paiement</h3>
+          <p>Carte bancaire, titres-restaurant, espèces, chèque et virement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venir" aria-labelledby="t-venir">
+    <div class="wrap venir-grid">
+      <div>
+        <h2 id="t-venir">Horaires et accès</h2>
+        <table class="horaires" id="horaires">
+          <caption class="sr-only" style="position:absolute;left:-9999px">Horaires d’ouverture</caption>
+          <tbody>
+            <tr data-d="1"><th scope="row">Lundi</th><td>8h – 20h</td></tr>
+            <tr data-d="2"><th scope="row">Mardi</th><td>8h – 20h</td></tr>
+            <tr data-d="3"><th scope="row">Mercredi</th><td>8h – 20h</td></tr>
+            <tr data-d="4"><th scope="row">Jeudi</th><td>8h – 20h</td></tr>
+            <tr data-d="5"><th scope="row">Vendredi</th><td>8h – 20h</td></tr>
+            <tr data-d="6" class="off"><th scope="row">Samedi et dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+
+        <address class="coord">
+          <a href="https://www.openstreetmap.org/?mlat=45.7610268&amp;mlon=3.1311364#map=18/45.7610268/3.1311364" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>2 avenue Michel-Ange<br>63000 Clermont-Ferrand</span>
+          </a>
+          <a href="tel:+33473433262">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            <span>04 73 43 32 62</span>
+          </a>
+          <a href="https://www.facebook.com/Bistro-La-Pardieu-712062098938276/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Bistro La Pardieu sur Facebook</span>
+          </a>
+          <div class="vide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <span>Adresse email (à compléter)</span>
+          </div>
+        </address>
+      </div>
+
+      <div>
+        <div class="map">
+          <iframe title="Plan : Bistro La Pardieu, 2 avenue Michel-Ange, Clermont-Ferrand" loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=3.1261%2C45.7588%2C3.1361%2C45.7632&amp;layer=mapnik&amp;marker=45.7610268%2C3.1311364"></iframe>
+        </div>
+        <a class="map-link" href="https://www.openstreetmap.org/directions?to=45.7610268%2C3.1311364" target="_blank" rel="noopener">Calculer mon itinéraire</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="nom">Bistro La Pardieu</p>
+    <p>2 avenue Michel-Ange, 63000 Clermont-Ferrand. <a href="tel:+33473433262">04 73 43 32 62</a></p>
+    <p>Maquette réalisée à titre de proposition par MOWebDesigner. Les informations proviennent de fiches publiques et restent à confirmer par l’établissement.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var parts = new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    var get = function(t){for(var i=0;i<parts.length;i++){if(parts[i].type===t)return parts[i].value}return ''};
+    var map = {'lun.':1,'mar.':2,'mer.':3,'jeu.':4,'ven.':5,'sam.':6,'dim.':0};
+    var d = map[get('weekday')]; var h = parseInt(get('hour'),10)%24; var m = parseInt(get('minute'),10);
+    if(d===undefined||isNaN(h)) return;
+    var t = h + m/60, semaine = d>=1 && d<=5, ouvert = semaine && t>=8 && t<20;
+    var statut = document.getElementById('statut'), txt = document.getElementById('statut-txt');
+    var regle = document.getElementById('regle'), curseur = document.getElementById('curseur');
+    var hh = h + 'h' + (m<10?'0':'') + m;
+    if(ouvert){
+      statut.classList.add('ouvert');
+      txt.textContent = 'Ouvert maintenant, jusqu’à 20h';
+    } else {
+      statut.classList.add('ferme');
+      var suite = (semaine && t<8) ? 'ouvre aujourd’hui à 8h' : ((d>=1 && d<=4) ? 'ouvre demain à 8h' : 'ouvre lundi à 8h');
+      txt.textContent = 'Fermé pour le moment, ' + suite;
+    }
+    if(!semaine) regle.classList.add('weekend');
+    regle.setAttribute('aria-label','Journée d’ouverture, de 8h à 20h. Il est ' + hh + ' à Clermont-Ferrand.');
+    if(semaine){
+      var ratio = Math.min(Math.max((t-8)/12,0),1);
+      curseur.style.display = 'block';
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        curseur.style.setProperty('--x', (ratio*regle.clientWidth) + 'px');
+      })});
+      window.addEventListener('resize',function(){curseur.style.setProperty('--x',(ratio*regle.clientWidth)+'px')});
+    }
+    var row = document.querySelector('#horaires tr[data-d="'+(d===0?6:d)+'"]');
+    if(row) row.classList.add('today');
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
