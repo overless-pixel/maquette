@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Le Château Rouge — maquette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#FAFAF7;--texte:#1A1A1A;--accent:#2B59C3;--doux:#EEEEE8;--sur-accent:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",system-ui,sans-serif;background:var(--fond);color:var(--texte);line-height:1.6;font-size:17px}
+::selection{background:var(--accent);color:var(--sur-accent)}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.demo{background:var(--texte);color:var(--fond);text-align:center;font-size:14px;padding:8px 16px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:68px;gap:16px}
+header .btn{min-height:44px;padding:0 18px;flex:none}
+.marque{font-family:"Bricolage Grotesque",serif;font-size:21px;font-weight:700;text-decoration:none}
+.hero{padding:72px 0 88px;border-bottom:1px solid color-mix(in srgb,var(--texte) 14%,transparent)}
+.metier{font-size:17px;opacity:.8;margin-bottom:18px}
+h1{font-family:"Bricolage Grotesque",serif;font-weight:700;font-size:clamp(44px,9vw,96px);line-height:1;letter-spacing:-.01em;max-width:14ch;text-wrap:balance}
+.slogan{font-size:clamp(19px,2.4vw,23px);margin:22px 0 34px;max-width:32ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:999px;border:2px solid var(--texte);
+  font-weight:600;text-decoration:none;white-space:nowrap;transition:background-color .15s,color .15s}
+.btn:hover{background:var(--texte);color:var(--fond)}
+.btn.plein{background:var(--accent);border-color:var(--accent);color:var(--sur-accent)}
+.btn.plein:hover{filter:brightness(.92)}
+section.bloc{padding:64px 0;border-bottom:1px solid color-mix(in srgb,var(--texte) 14%,transparent)}
+.grille{display:grid;gap:40px}
+h2{font-family:"Bricolage Grotesque",serif;font-weight:700;font-size:clamp(28px,4vw,40px);line-height:1.1;margin-bottom:18px}
+.horaires,.contacts{list-style:none}
+.horaires li,.contacts li{padding:12px 0;border-bottom:1px solid color-mix(in srgb,var(--texte) 12%,transparent);font-variant-numeric:tabular-nums}
+.contacts li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.contacts span{opacity:.75}
+.afaire{opacity:.75;font-style:italic}
+.adresse{font-size:19px;margin-bottom:18px}
+.carte{border-radius:16px;overflow:hidden;min-height:280px;background:var(--doux)}
+.carte iframe{display:block;width:100%;height:280px;border:0}
+.photo{aspect-ratio:4/3;border-radius:16px;background:var(--doux);display:grid;place-items:center;text-align:center;padding:24px;opacity:.85}
+footer{padding:32px 0 44px;font-size:14px;opacity:.75}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (min-width:800px){.grille{grid-template-columns:1fr 1fr;align-items:start}}
+</style>
+</head>
+<body>
+<div class="demo" role="note">Maquette de démonstration — proposition non officielle</div>
+<header><div class="wrap"><a class="marque" href="#">Le Château Rouge</a><a class="btn plein" href="#trouver">Nous trouver</a></div></header>
+<main>
+  <section class="hero"><div class="wrap">
+    <p class="metier">Commerce à Clermont-Ferrand</p>
+    <h1>Le Château Rouge</h1>
+    <p class="slogan">À deux pas de chez vous.</p>
+    <div class="actions"><a class="btn plein" href="tel:+33473921985">Appeler</a><a class="btn" href="https://www.openstreetmap.org/directions?to=45.779281%2C3.1000405" target="_blank" rel="noopener">Itinéraire</a></div>
+  </div></section>
+
+  <section class="bloc"><div class="wrap grille">
+    <div><h2>Qui sommes-nous</h2>
+      <p class="afaire">La présentation de Le Château Rouge, son histoire et ses spécialités, à écrire avec vous.</p></div>
+    <div class="photo" role="img" aria-label="Emplacement réservé à une photo">Une photo de Le Château Rouge<br>(à fournir)</div>
+  </div></section>
+
+  <section class="bloc" id="trouver"><div class="wrap grille">
+    <div>
+      <h2>Horaires</h2>
+      <ul class='horaires'><li>Lundi – Samedi : 7h00 – 22h30</li><li>Dimanche : 8h30 – 10h30</li></ul>
+      <h2 style="margin-top:40px">Contact</h2>
+      <ul class='contacts'><li><span>Téléphone</span><a href="tel:+33473921985">+33 4 73 92 19 85</a></li></ul>
+    </div>
+    <div>
+      <h2>Nous trouver</h2>
+      <p class="adresse">69 Avenue Charras, 63000 Clermont-Ferrand</p>
+      <div class="carte"><iframe loading="lazy" title="Plan d'accès à Le Château Rouge" src="https://www.openstreetmap.org/export/embed.html?bbox=3.09504%2C45.77678%2C3.10504%2C45.78178&amp;layer=mapnik&amp;marker=45.77928%2C3.10004"></iframe></div>
+      <div class="actions" style="margin-top:18px"><a class="btn" href="https://www.openstreetmap.org/directions?to=45.779281%2C3.1000405" target="_blank" rel="noopener">Itinéraire</a></div>
+    </div>
+  </div></section>
+</main>
+<footer><div class="wrap"><span>Le Château Rouge, Clermont-Ferrand</span><span>Maquette réalisée à titre de proposition par MOWebDesigner</span></div></footer>
+</body>
+</html>
