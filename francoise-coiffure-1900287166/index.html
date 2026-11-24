@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Françoise Coiffure — Salon de coiffure à Clermont-Ferrand (maquette)</title>
+<meta name="description" content="Maquette de démonstration pour Françoise Coiffure, salon de coiffure à Clermont-Ferrand.">
+<meta name="theme-color" content="#3a1f2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a1720;
+    --plum:#3a1f2b;
+    --rose:#b4566a;
+    --rose-dark:#8e3b4f;
+    --cream:#faf4ee;
+    --sand:#f1e6db;
+    --line:#e2d3c6;
+    --muted:#6b5560;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--cream);color:var(--ink);font:400 1rem/1.6 "Manrope",system-ui,sans-serif;overflow-x:hidden}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:6px}
+  .wrap{width:min(1100px,100% - 2.5rem);margin-inline:auto}
+
+  .demo{background:var(--plum);color:#fff;text-align:center;font-size:.85rem;padding:.55rem 1rem;letter-spacing:.02em}
+
+  header.top{border-bottom:1px solid var(--line);background:var(--cream)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px}
+  .brand{display:inline-flex;align-items:baseline;gap:.3em;padding:.45rem 0;min-height:44px;font-family:"Fraunces",Georgia,serif;font-size:1.45rem;font-weight:600;text-decoration:none;color:var(--plum)}
+  .brand em{font-style:italic;font-weight:400;color:var(--rose-dark)}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.25rem}
+  nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 .8rem;text-decoration:none;font-weight:500;font-size:.95rem;border-radius:999px}
+  nav a:hover{background:var(--sand)}
+  @media (max-width:720px){nav{display:none}}
+
+  .hero{padding:4.5rem 0 4rem;position:relative;overflow:hidden}
+  .hero .wrap{display:grid;gap:2.5rem;align-items:center}
+  @media (min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr}}
+  .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--rose-dark);margin:0 0 1rem}
+  h1{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(2.6rem,8vw,4.8rem);line-height:1.02;margin:0 0 1.25rem;color:var(--plum);letter-spacing:-.01em}
+  h1 .line{display:block}
+  h1 em{color:var(--rose-dark)}
+  .lead{font-size:1.12rem;max-width:34rem;color:var(--muted);margin:0 0 2rem}
+  .actions{display:flex;flex-wrap:wrap;gap:.75rem}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s ease,background-color .2s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-main{background:var(--rose-dark);color:#fff}
+  .btn-main:hover{background:var(--plum)}
+  .btn-ghost{border:1.5px solid var(--plum);color:var(--plum)}
+  .btn-ghost:hover{background:var(--sand)}
+
+  .photo{border:2px dashed #c9b3a6;border-radius:var(--radius);background:repeating-linear-gradient(135deg,var(--sand) 0 12px,#f6ede4 12px 24px);display:grid;place-items:center;text-align:center;color:var(--muted);font-weight:500;padding:1rem}
+  .hero .photo{aspect-ratio:4/5;max-height:520px}
+  @media (max-width:899px){.hero .photo{aspect-ratio:4/3}}
+
+  section{padding:4rem 0}
+  .alt{background:var(--sand)}
+  h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.1;margin:0 0 .75rem;color:var(--plum)}
+  .intro{color:var(--muted);max-width:40rem;margin:0 0 2.25rem}
+  .todo{display:inline-block;background:#fff;border:1px dashed var(--rose);color:var(--rose-dark);font-size:.82rem;font-weight:700;padding:.1rem .55rem;border-radius:6px}
+
+  .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem}
+  .card h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.25rem;margin:0 0 .5rem;color:var(--plum)}
+  .card p{margin:0;color:var(--muted)}
+
+  .gallery{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));margin-top:1.5rem}
+  .gallery .photo{aspect-ratio:1}
+
+  .two{display:grid;gap:2rem}
+  @media (min-width:900px){.two{grid-template-columns:1fr 1fr}}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+  th,td{text-align:left;padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
+  tr:last-child th,tr:last-child td{border-bottom:0}
+  th{font-weight:500}
+  td{color:var(--muted)}
+
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#fff}
+  .map iframe{display:block;width:100%;height:320px;border:0}
+  .map p{margin:0;padding:.75rem 1rem;font-size:.88rem;color:var(--muted)}
+  .map p a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--rose-dark)}
+
+  .contact-list{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+  .contact-list li{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.25rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}
+  .contact-list strong{color:var(--plum)}
+
+  footer{background:var(--plum);color:#f3e7ea;padding:2.5rem 0;font-size:.92rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+  footer .brand{color:#fff}
+  footer p{margin:.25rem 0}
+
+  /* Animation unique : apparition du titre ligne par ligne */
+  .js h1 .line{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .js h1 .line:nth-child(2){animation-delay:.12s}
+  .js h1 .line:nth-child(3){animation-delay:.24s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .js h1 .line{opacity:1;transform:none;animation:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+<script>document.body.classList.add('js')</script>
+
+<div class="demo" role="note">Maquette de démonstration — proposition non officielle</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Françoise <em>Coiffure</em></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Salon de coiffure · Clermont-Ferrand</p>
+        <h1><span class="line">Votre salon</span><span class="line">de coiffure,</span><span class="line"><em>chez Françoise.</em></span></h1>
+        <p class="lead">Votre salon de coiffure à Clermont-Ferrand. Un coup de fil suffit pour prendre rendez-vous.</p>
+        <div class="actions">
+          <a class="btn btn-main" href="#contact">Prendre rendez-vous</a>
+          <a class="btn btn-ghost" href="#adresse">Venir au salon</a>
+        </div>
+      </div>
+      <div class="photo" role="img" aria-label="Emplacement photo">Photo à fournir<br>(le salon, la devanture)</div>
+    </div>
+  </section>
+
+  <section id="prestations" class="alt">
+    <div class="wrap">
+      <h2>Les prestations</h2>
+      <p class="intro">La liste des prestations et des tarifs sera complétée avec le salon. <span class="todo">à compléter</span></p>
+      <div class="grid">
+        <article class="card"><h3>Prestation 1</h3><p>Description et tarif <span class="todo">à compléter</span></p></article>
+        <article class="card"><h3>Prestation 2</h3><p>Description et tarif <span class="todo">à compléter</span></p></article>
+        <article class="card"><h3>Prestation 3</h3><p>Description et tarif <span class="todo">à compléter</span></p></article>
+      </div>
+      <div class="gallery">
+        <div class="photo" role="img" aria-label="Emplacement photo">Photo à fournir</div>
+        <div class="photo" role="img" aria-label="Emplacement photo">Photo à fournir</div>
+        <div class="photo" role="img" aria-label="Emplacement photo">Photo à fournir</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="horaires">
+    <div class="wrap two">
+      <div>
+        <h2>Horaires</h2>
+        <p class="intro">Horaires d'ouverture du salon. <span class="todo">à compléter</span></p>
+        <table>
+          <caption class="sr-only" style="position:absolute;left:-9999px">Horaires d'ouverture</caption>
+          <tbody>
+            <tr><th scope="row">Lundi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Mardi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Mercredi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Jeudi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Vendredi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Samedi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Dimanche</th><td>à compléter</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="adresse">
+        <h2>Adresse</h2>
+        <p class="intro">Adresse exacte <span class="todo">à compléter</span> — 63000 Clermont-Ferrand</p>
+        <div class="map">
+          <iframe title="Plan de Clermont-Ferrand (OpenStreetMap)" loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=3.0650%2C45.7650%2C3.1050%2C45.7920&amp;layer=mapnik"></iframe>
+          <p>Plan indicatif du centre de Clermont-Ferrand, à recentrer sur le salon. <a href="https://www.openstreetmap.org/#map=15/45.7785/3.0850">Ouvrir le plan</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="alt">
+    <div class="wrap">
+      <h2>Prendre rendez-vous</h2>
+      <p class="intro">Le plus simple : appeler le salon.</p>
+      <ul class="contact-list">
+        <li><strong>Téléphone</strong><span class="todo">à compléter</span></li>
+        <li><strong>E-mail</strong><span class="todo">à compléter</span></li>
+        <li><strong>Instagram / Facebook</strong><span class="todo">à compléter</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top">Françoise <em style="color:#f0bfc9">Coiffure</em></a>
+      <p>Salon de coiffure · Clermont-Ferrand</p>
+    </div>
+    <div>
+      <p>Maquette réalisée à titre de proposition par MOWebDesigner.</p>
+      <p>Site non officiel, contenu à valider avec le salon.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
