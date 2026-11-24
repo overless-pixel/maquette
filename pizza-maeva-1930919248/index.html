@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pizza Maëva, pizzas le soir à Clermont-Ferrand (maquette)</title>
+<meta name="description" content="Pizza Maëva, boulevard Jean-Baptiste Dumas à Clermont-Ferrand. Ouvert tous les soirs de 18h à 23h30. Tél. 04 73 36 00 01.">
+<meta name="theme-color" content="#B5261B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sauce:#B5261B;        /* fond : la sauce tomate */
+    --sauce-fonce:#8E1C13;
+    --mozza:#FFFFFF;        /* la mozzarella */
+    --basilic:#1E5634;      /* le basilic */
+    --basilic-clair:#CFE3D3;
+    --four:#F6B93B;         /* la braise du four, sur fond sombre seulement */
+    --encre:#2A1512;
+    --encre-douce:#5C3F3A;
+    --pate:#FBEFE0;         /* la pâte, en petites touches */
+    --radius:14px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+  body{margin:0;font-family:"Rubik",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55;color:var(--encre);background:var(--mozza);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+  ::selection{background:var(--four);color:var(--encre)}
+  a{color:inherit;text-underline-offset:.2em}
+  :focus-visible{outline:3px solid var(--four);outline-offset:3px;border-radius:6px}
+  .on-light :focus-visible{outline-color:var(--sauce)}
+  img,svg,iframe{display:block;max-width:100%}
+  .wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+  /* Bandeau de démonstration */
+  .demo{background:var(--encre);color:#F3E6E2;font-size:.875rem;text-align:center;padding:.5rem 1rem}
+
+  /* En-tête */
+  header{background:var(--sauce);color:var(--mozza)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.9rem}
+  .marque{font-family:"Shrikhand",cursive;font-size:1.5rem;line-height:1;text-decoration:none;padding:.5rem 0}
+  .tel-mini{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 1rem;border:2px solid rgba(255,255,255,.75);border-radius:999px;text-decoration:none;font-weight:500;white-space:nowrap}
+  .tel-mini:hover{background:var(--mozza);color:var(--sauce)}
+
+  /* Accroche */
+  .hero{background:var(--sauce);color:var(--mozza);position:relative;padding:2.5rem 0 5.5rem}
+  .hero-grid{display:grid;gap:2.5rem;align-items:center}
+  h1{font-family:"Shrikhand",cursive;font-weight:400;font-size:clamp(3.4rem,14vw,6rem);line-height:.95;margin:0 0 1.25rem;letter-spacing:-.01em;text-wrap:balance}
+  .accroche{font-size:clamp(1.15rem,3.6vw,1.4rem);max-width:30ch;margin:0 0 2rem;color:#FFE9E4}
+  .actions{display:flex;flex-wrap:wrap;gap:.75rem}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 1.4rem;border-radius:999px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:transform .15s ease-out,background-color .15s ease-out,color .15s ease-out}
+  .btn:active{transform:scale(.97)}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-plein{background:var(--mozza);color:var(--sauce);box-shadow:0 6px 18px -6px rgba(60,6,2,.55)}
+  .btn-plein:hover{background:var(--pate)}
+  .btn-ligne{border:2px solid rgba(255,255,255,.8);color:var(--mozza)}
+  .btn-ligne:hover{background:rgba(255,255,255,.12)}
+
+  /* Le cadran des horaires */
+  .cadran{justify-self:center;width:min(340px,86vw);text-align:center}
+  .cadran svg{width:100%;height:auto;overflow:visible}
+  .cadran .tranche{stroke:var(--four);stroke-dasharray:288;stroke-dashoffset:0}
+  .js .cadran .tranche{stroke-dashoffset:288}
+  .js .cadran.vu .tranche{stroke-dashoffset:0;transition:stroke-dashoffset 1.4s cubic-bezier(.16,1,.3,1) .25s}
+  @media (prefers-reduced-motion: reduce){.js .cadran .tranche{stroke-dashoffset:0;transition:none!important}}
+  .statut{margin:1rem 0 0;font-weight:700;font-size:1.1rem}
+  .statut small{display:block;font-weight:400;font-size:.95rem;color:#FFE1DB}
+
+  /* Bord de croûte entre deux sections */
+  .croute{position:absolute;left:0;right:0;bottom:-1px;height:40px;color:var(--mozza)}
+  .croute svg{width:100%;height:40px}
+
+  section{padding:4rem 0}
+  h2{font-family:"Shrikhand",cursive;font-weight:400;font-size:clamp(2rem,6vw,2.9rem);line-height:1.05;margin:0 0 1rem;color:var(--sauce)}
+
+  /* Carte */
+  .carte-grid{display:grid;gap:2rem;align-items:center}
+  .carte p{max-width:52ch;margin:0 0 1rem;color:var(--encre-douce)}
+  .carte p strong{color:var(--encre)}
+  .photo{aspect-ratio:4/3;border-radius:50%/42%;background:repeating-linear-gradient(135deg,#F7E3DE 0 14px,#FBEFEA 14px 28px);border:2px dashed #D9A79E;display:grid;place-items:center;color:var(--encre-douce);font-weight:500;text-align:center;padding:1rem}
+  .commander{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
+  .on-light .btn-plein{background:var(--sauce);color:var(--mozza);box-shadow:0 6px 18px -8px rgba(142,28,19,.6)}
+  .on-light .btn-plein:hover{background:var(--sauce-fonce)}
+
+  /* Adresse */
+  .adresse{background:var(--basilic);color:var(--mozza)}
+  .adresse h2{color:var(--mozza)}
+  .adresse-grid{display:grid;gap:2rem;align-items:start}
+  .adresse address{font-style:normal;font-size:1.25rem;line-height:1.45;margin:0 0 1.5rem}
+  .adresse dl{margin:0 0 1.75rem;display:grid;gap:1rem}
+  .adresse dt{font-weight:700}
+  .adresse dd{margin:0;color:var(--basilic-clair)}
+  .adresse dd a{color:var(--mozza);font-weight:500}
+  .plan{border-radius:var(--radius);overflow:hidden;border:3px solid rgba(255,255,255,.25);background:#2A6B44}
+  .plan iframe{width:100%;height:340px;border:0}
+  .plan a{display:block;padding:.75rem 1rem;color:var(--mozza);font-size:.95rem}
+  .btn-basilic{background:var(--mozza);color:var(--basilic)}
+  .btn-basilic:hover{background:var(--basilic-clair)}
+
+  footer{background:var(--encre);color:#E6D6D2;padding:2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom));font-size:.95rem}
+  footer .marque{display:inline-block;color:var(--mozza);margin-bottom:.5rem}
+  footer p{margin:.25rem 0}
+
+  @media (min-width:860px){
+    .hero{padding:3.5rem 0 7rem}
+    .hero-grid{grid-template-columns:1.25fr 1fr}
+    .carte-grid{grid-template-columns:1fr 1fr;gap:4rem}
+    .adresse-grid{grid-template-columns:1fr 1.3fr;gap:4rem}
+    .plan iframe{height:400px}
+    section{padding:5.5rem 0}
+  }
+  @media (max-width:420px){
+    .tel-mini span{display:none}
+    .btn{width:100%}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<div class="demo" role="note">Maquette de démonstration — proposition non officielle</div>
+
+<header>
+  <div class="wrap bar">
+    <a class="marque" href="#haut" aria-label="Pizza Maëva, haut de page">Pizza Maëva</a>
+    <a class="tel-mini" href="tel:+33473360001" aria-label="Appeler Pizza Maëva au 04 73 36 00 01">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span>04 73 36 00 01</span>
+    </a>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Pizza Maëva</h1>
+        <p class="accroche">Des pizzas tous les soirs jusqu'à 23h30, boulevard Jean-Baptiste Dumas, à Clermont-Ferrand.</p>
+        <div class="actions">
+          <a class="btn btn-plein" href="tel:+33473360001">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            Appeler pour commander
+          </a>
+          <a class="btn btn-ligne" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.7870363,3.0847884" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Itinéraire
+          </a>
+        </div>
+      </div>
+
+      <figure class="cadran" id="cadran" style="margin:0">
+        <svg viewBox="0 0 300 300" role="img" aria-labelledby="cadran-titre">
+          <title id="cadran-titre">Ouvert tous les jours de 18h à 23h30</title>
+          <!-- la pizza vue de dessus : croûte, sauce, et la tranche des heures d'ouverture -->
+          <circle cx="150" cy="150" r="138" fill="#E9A24A"/>
+          <circle cx="150" cy="150" r="124" fill="#8E1C13"/>
+          <circle cx="150" cy="150" r="100" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="40"/>
+          <path class="tranche" d="M150 250 A100 100 0 0 1 124.12 53.41" fill="none" stroke-width="40" stroke-linecap="butt"/>
+          <g stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity=".85">
+            <line x1="150" y1="34" x2="150" y2="44"/><line x1="208" y1="49.5" x2="203" y2="58.2"/>
+            <line x1="250.5" y1="92" x2="241.8" y2="97"/><line x1="266" y1="150" x2="256" y2="150"/>
+            <line x1="250.5" y1="208" x2="241.8" y2="203"/><line x1="208" y1="250.5" x2="203" y2="241.8"/>
+            <line x1="150" y1="266" x2="150" y2="256"/><line x1="92" y1="250.5" x2="97" y2="241.8"/>
+            <line x1="49.5" y1="208" x2="58.2" y2="203"/><line x1="34" y1="150" x2="44" y2="150"/>
+            <line x1="49.5" y1="92" x2="58.2" y2="97"/><line x1="92" y1="49.5" x2="97" y2="58.2"/>
+          </g>
+          <text x="150" y="140" text-anchor="middle" fill="#FFFFFF" font-family="Shrikhand, cursive" font-size="34">18h</text>
+          <text x="150" y="178" text-anchor="middle" fill="#FFFFFF" font-family="Shrikhand, cursive" font-size="34">23h30</text>
+          <text x="150" y="158" text-anchor="middle" fill="#F6B93B" font-family="Rubik, sans-serif" font-size="14" font-weight="700">à</text>
+        </svg>
+        <figcaption class="statut" id="statut">Tous les soirs, du lundi au dimanche<small>de 18h à 23h30</small></figcaption>
+      </figure>
+    </div>
+    <div class="croute" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 40 V22 Q25 6 50 22 T100 22 T150 22 T200 22 T250 22 T300 22 T350 22 T400 22 T450 22 T500 22 T550 22 T600 22 T650 22 T700 22 T750 22 T800 22 T850 22 T900 22 T950 22 T1000 22 T1050 22 T1100 22 T1150 22 T1200 22 V40 Z" fill="currentColor"/></svg>
+    </div>
+  </div>
+
+  <section class="carte on-light" aria-labelledby="carte-titre">
+    <div class="wrap carte-grid">
+      <div>
+        <h2 id="carte-titre">La carte</h2>
+        <p><strong>Vos pizzas et vos prix, présentés comme vous le souhaitez</strong> : à compléter avec votre carte actuelle.</p>
+        <p>Ici, un client voit en un coup d'œil ce qu'il va commander ce soir, avant même de décrocher son téléphone.</p>
+        <div class="commander">
+          <a class="btn btn-plein" href="tel:+33473360001">Commander au 04 73 36 00 01</a>
+        </div>
+      </div>
+      <div class="photo" role="img" aria-label="Emplacement pour une photo">Photo à fournir<br>votre pizza signature</div>
+    </div>
+  </section>
+
+  <section class="adresse" aria-labelledby="adresse-titre">
+    <div class="wrap adresse-grid">
+      <div>
+        <h2 id="adresse-titre">Nous trouver</h2>
+        <address>2 boulevard Jean-Baptiste Dumas<br>63000 Clermont-Ferrand</address>
+        <dl>
+          <div><dt>Horaires</dt><dd>Du lundi au dimanche, de 18h à 23h30</dd></div>
+          <div><dt>Téléphone</dt><dd><a href="tel:+33473360001">04 73 36 00 01</a></dd></div>
+          <div><dt>Email et réseaux</dt><dd>À compléter</dd></div>
+        </dl>
+        <a class="btn btn-basilic" href="https://www.google.com/maps/dir/?api=1&amp;destination=45.7870363,3.0847884" target="_blank" rel="noopener">Ouvrir l'itinéraire</a>
+      </div>
+      <div class="plan">
+        <iframe title="Plan : Pizza Maëva, boulevard Jean-Baptiste Dumas" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=3.0797%2C45.7845%2C3.0899%2C45.7895&amp;layer=mapnik&amp;marker=45.7870363%2C3.0847884"></iframe>
+        <a href="https://www.openstreetmap.org/?mlat=45.7870363&amp;mlon=3.0847884#map=18/45.7870363/3.0847884" target="_blank" rel="noopener">Voir le plan en grand</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="marque">Pizza Maëva</span>
+    <p>2 boulevard Jean-Baptiste Dumas, 63000 Clermont-Ferrand. Tél. <a href="tel:+33473360001">04 73 36 00 01</a></p>
+    <p>Maquette réalisée à titre de proposition par MOWebDesigner.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    // Ouvert ou fermé, à l'heure de Clermont-Ferrand
+    var parts=new Intl.DateTimeFormat('fr-FR',{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var h=0,m=0;parts.forEach(function(p){if(p.type==='hour')h=+p.value%24;if(p.type==='minute')m=+p.value;});
+    var t=h*60+m,el=document.getElementById('statut');
+    if(t>=1080&&t<1410){el.innerHTML='Ouvert maintenant<small>jusqu’à 23h30</small>';}
+    else if(t<1080){el.innerHTML='Ouvre ce soir à 18h<small>jusqu’à 23h30, tous les jours</small>';}
+    else{el.innerHTML='Fermé pour ce soir<small>de retour demain à 18h</small>';}
+  }catch(e){}
+  var c=document.getElementById('cadran');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){c.classList.add('vu');});});
+})();
+</script>
+</body>
+</html>
