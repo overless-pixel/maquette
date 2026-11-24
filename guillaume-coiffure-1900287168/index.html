@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Guillaume Coiffure — Salon de coiffure à Clermont-Ferrand (maquette)</title>
+<meta name="description" content="Maquette de démonstration du site de Guillaume Coiffure, salon de coiffure à Clermont-Ferrand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1d1a17;
+    --ink-soft:#4a433c;
+    --paper:#f6f1ea;
+    --paper-2:#ece4d8;
+    --copper:#9a4f2c;
+    --copper-dark:#7a3c1f;
+    --line:#d6cbbb;
+    --radius:14px;
+    --wrap:1120px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 "Manrope",system-ui,sans-serif;overflow-x:hidden}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.1;margin:0}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--copper);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+
+  .demo{background:var(--ink);color:#f6f1ea;text-align:center;font-size:.85rem;padding:8px 16px;letter-spacing:.02em}
+
+  header.top{border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+  .brand{display:inline-flex;align-items:center;gap:.3em;min-height:44px;font-family:"Fraunces",serif;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+  .brand em{font-style:italic;color:var(--copper)}
+  nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+  nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink-soft)}
+  nav a:hover{color:var(--copper)}
+  @media (max-width:640px){nav{display:none}}
+
+  .hero{padding:56px 0 64px}
+  .hero .wrap{display:grid;gap:40px}
+  @media (min-width:880px){.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center}.hero{padding:88px 0 96px}}
+  .kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--copper-dark);font-weight:700;margin:0 0 18px}
+  .hero h1{font-size:clamp(2.6rem,9vw,5rem);letter-spacing:-.025em}
+  .hero h1 .line{display:block}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--copper)}
+  .hero p.lead{font-size:1.1rem;color:var(--ink-soft);max-width:34ch;margin:22px 0 30px}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:background-color .2s ease,color .2s ease,transform .15s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--copper-dark);border-color:var(--copper-dark)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--paper-2)}
+  .note{font-size:.85rem;color:var(--ink-soft);margin-top:12px}
+
+  .ph{position:relative;background:repeating-linear-gradient(135deg,var(--paper-2) 0 12px,#e5dccd 12px 24px);border:1px dashed #b9ab96;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:.9rem;font-weight:500;text-align:center;padding:16px}
+  .hero .ph{aspect-ratio:4/5;max-height:520px}
+
+  section.block{padding:72px 0;border-top:1px solid var(--line)}
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:32px}
+  .head h2{font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:-.02em}
+  .head p{margin:0;color:var(--ink-soft);max-width:44ch}
+  .num{font-family:"Fraunces",serif;font-style:italic;color:var(--copper);font-size:1rem;display:block;margin-bottom:6px}
+
+  .services{display:grid;gap:0;border-top:1px solid var(--ink)}
+  .svc{display:grid;grid-template-columns:1fr auto;gap:12px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .svc h3{font-size:1.3rem;font-weight:400}
+  .svc p{margin:4px 0 0;color:var(--ink-soft);font-size:.95rem}
+  .svc .price{font-size:.9rem;color:var(--copper-dark);font-weight:700;white-space:nowrap;align-self:center}
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:36px}
+  .gallery .ph{aspect-ratio:1}
+  @media (min-width:880px){.gallery{grid-template-columns:repeat(4,1fr)}}
+
+  .two{display:grid;gap:32px}
+  @media (min-width:880px){.two{grid-template-columns:1fr 1fr;gap:56px}}
+  table.hours{width:100%;border-collapse:collapse;font-size:1rem}
+  table.hours th,table.hours td{padding:14px 0;border-bottom:1px solid var(--line);text-align:left}
+  table.hours th{font-weight:500}
+  table.hours td{text-align:right;color:var(--ink-soft)}
+  .todo{display:inline-block;font-size:.8rem;font-weight:700;color:var(--copper-dark);background:#f3e2d6;border-radius:999px;padding:2px 10px}
+
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--paper-2)}
+  .map iframe{width:100%;height:100%;border:0;display:block}
+  dl.contact{margin:0;display:grid;gap:0}
+  dl.contact div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+  dl.contact dt{font-weight:700}
+  dl.contact dd{margin:0;color:var(--ink-soft)}
+
+  .cta{background:var(--ink);color:var(--paper);padding:72px 0;text-align:center}
+  .cta h2{font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.02em}
+  .cta h2 em{color:#e7a07b;font-weight:400}
+  .cta p{color:#d9d0c4;margin:16px auto 28px;max-width:40ch}
+  .cta .btn-primary{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .cta .btn-primary:hover{background:#e7a07b;border-color:#e7a07b}
+
+  footer{padding:32px 0 calc(32px + env(safe-area-inset-bottom));font-size:.9rem;color:var(--ink-soft)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+  /* animation d'entrée : le contenu reste visible sans JS */
+  .js .reveal{opacity:0;transform:translateY(28px)}
+  .js.ready .reveal{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .js.ready .reveal:nth-child(2){transition-delay:.12s}
+  .js.ready .reveal:nth-child(3){transition-delay:.24s}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal,.js.ready .reveal{opacity:1;transform:none;transition:none}
+    .btn{transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="demo" role="note">Maquette de démonstration — proposition non officielle</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Guillaume <em>Coiffure</em></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#horaires">Horaires</a></li>
+        <li><a href="#acces">Accès</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker reveal">Salon de coiffure · Clermont-Ferrand</p>
+        <h1 class="reveal"><span class="line">Votre coupe,</span><span class="line"><em>pensée pour vous.</em></span></h1>
+        <div class="reveal">
+          <p class="lead">Guillaume Coiffure vous accueille à Clermont-Ferrand. Prenez rendez-vous en un appel.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Prendre rendez-vous</a>
+            <a class="btn btn-ghost" href="#acces">Venir au salon</a>
+          </div>
+          <p class="note">Numéro de téléphone à compléter.</p>
+        </div>
+      </div>
+      <div class="ph" aria-label="Emplacement photo">Photo à fournir<br>(le salon ou une réalisation)</div>
+    </div>
+  </section>
+
+  <section class="block" id="prestations">
+    <div class="wrap">
+      <div class="head">
+        <h2><span class="num">01</span>Prestations</h2>
+        <p>La liste des prestations et les tarifs seront repris de la carte du salon.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><div><h3>Prestation à compléter</h3><p>Description à compléter</p></div><span class="price">Tarif à compléter</span></div>
+        <div class="svc"><div><h3>Prestation à compléter</h3><p>Description à compléter</p></div><span class="price">Tarif à compléter</span></div>
+        <div class="svc"><div><h3>Prestation à compléter</h3><p>Description à compléter</p></div><span class="price">Tarif à compléter</span></div>
+        <div class="svc"><div><h3>Prestation à compléter</h3><p>Description à compléter</p></div><span class="price">Tarif à compléter</span></div>
+      </div>
+      <div class="gallery" aria-label="Galerie (photos à fournir)">
+        <div class="ph">Photo à fournir</div>
+        <div class="ph">Photo à fournir</div>
+        <div class="ph">Photo à fournir</div>
+        <div class="ph">Photo à fournir</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="horaires">
+    <div class="wrap two">
+      <div>
+        <div class="head"><h2><span class="num">02</span>Horaires</h2></div>
+        <table class="hours">
+          <caption class="todo" style="caption-side:bottom;margin-top:14px">Horaires à compléter</caption>
+          <tbody>
+            <tr><th scope="row">Lundi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Mardi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Mercredi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Jeudi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Vendredi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Samedi</th><td>à compléter</td></tr>
+            <tr><th scope="row">Dimanche</th><td>à compléter</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="contact">
+        <div class="head"><h2><span class="num">03</span>Contact</h2></div>
+        <dl class="contact">
+          <div><dt>Téléphone</dt><dd>à compléter</dd></div>
+          <div><dt>E-mail</dt><dd>à compléter</dd></div>
+          <div><dt>Instagram</dt><dd>à compléter</dd></div>
+          <div><dt>Facebook</dt><dd>à compléter</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="acces">
+    <div class="wrap two">
+      <div>
+        <div class="head"><h2><span class="num">04</span>Accès</h2></div>
+        <p style="margin:0 0 8px;font-weight:700">Guillaume Coiffure</p>
+        <p style="margin:0 0 20px;color:var(--ink-soft)">Adresse à compléter<br>Clermont-Ferrand</p>
+        <a class="btn btn-ghost" href="https://www.openstreetmap.org/search?query=Clermont-Ferrand" target="_blank" rel="noopener">Itinéraire</a>
+        <p class="note">Le plan sera centré sur l'adresse exacte du salon.</p>
+      </div>
+      <div class="map">
+        <iframe title="Plan de Clermont-Ferrand (OpenStreetMap)" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=3.0606%2C45.7646%2C3.1012%2C45.7886&amp;layer=mapnik"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Envie d'un <em>nouveau style</em> ?</h2>
+      <p>Appelez le salon pour réserver votre créneau.</p>
+      <a class="btn btn-primary" href="#contact">Prendre rendez-vous</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Maquette réalisée à titre de proposition par MOWebDesigner.</span>
+    <span>Guillaume Coiffure · Clermont-Ferrand</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var d=document.documentElement;
+    d.classList.add('js');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('ready');});});
+  })();
+</script>
+</body>
+</html>
